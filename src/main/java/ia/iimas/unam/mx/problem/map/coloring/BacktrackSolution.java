@@ -25,7 +25,6 @@ public class BacktrackSolution  extends BacktrackingAlgorithm {
 
     @Override
     public void run() {
-
         System.out.println();
         System.out.println("Este programa ejecuta el algoritmo BACKTRACKING para el problema de seleccion de colores");
         System.out.println("encontrara todas las soluciones posibles para el problema");
@@ -37,7 +36,6 @@ public class BacktrackSolution  extends BacktrackingAlgorithm {
         System.out.println();
 
        backtrack(node_list.get(0), new HashSet<>());
-
     }
 
     private void backtrack( IVariable current_country,  Set<NodeColor> solution){
