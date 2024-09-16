@@ -8,7 +8,6 @@ import ia.iimas.unam.mx.model.IVariable;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Scanner;
 import java.util.Set;
 
 
@@ -16,7 +15,7 @@ public class BacktrackSolution  extends BacktrackingAlgorithm {
 
     private ArrayList<IVariable> node_list;
 
-    private static boolean  clickSetting = true;
+    private static boolean  clickSetting = false;
 
     @Override
     public void setCsp(IPropertiesCSP csp) {
@@ -31,9 +30,12 @@ public class BacktrackSolution  extends BacktrackingAlgorithm {
         System.out.println();
 
         node_list = new ArrayList<>(this.csp.getArcs());
-
+        System.out.println("Nodos:");
         System.out.println(node_list);
         System.out.println();
+        System.out.println("Dominio:");
+        System.out.println(this.csp.getGeneralDomain());
+        System.out.println(1);
 
        backtrack(node_list.get(0), new HashSet<>());
     }

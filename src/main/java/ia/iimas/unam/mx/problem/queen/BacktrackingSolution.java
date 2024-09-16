@@ -1,10 +1,15 @@
 package ia.iimas.unam.mx.problem.queen;
 
 import ia.iimas.unam.mx.algorithm.BacktrackingAlgorithm;
-import ia.iimas.unam.mx.model.ICSP;
 import ia.iimas.unam.mx.model.IPropertiesCSP;
 
+import java.io.IOException;
+
 public class BacktrackingSolution extends BacktrackingAlgorithm {
+
+    private static boolean  clickSetting = false;
+
+    private int queenNum;
     @Override
     public void run() {
 
@@ -13,7 +18,7 @@ public class BacktrackingSolution extends BacktrackingAlgorithm {
         System.out.println("encontrara todas las soluciones posibles para el problema");
         System.out.println();
 
-        IPropertiesCSP queenPorperties = new QueenProperties(8);
+        IPropertiesCSP queenPorperties = new QueenProperties(this.queenNum);
         Board board = ((QueenProperties)queenPorperties).getBoard();
 
         backtrack(0, board);
@@ -30,6 +35,9 @@ public class BacktrackingSolution extends BacktrackingAlgorithm {
                 if(board.getQueens().size()==board.getQueenNumber()){
                     System.out.println(board);
                     System.out.println();
+                    if(clickSetting){
+                        click();
+                    }
                 }
                 nextCol = col+1;
                 if(nextCol < board.getQueenNumber()){
@@ -41,4 +49,19 @@ public class BacktrackingSolution extends BacktrackingAlgorithm {
         }
     }
 
+    public static void click(){
+        try{
+            System.in.read();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void setQueenNum(int queenNum) {
+        this.queenNum = queenNum;
+    }
+
+    public void setClickSetting(boolean clickSetting) {
+        this.clickSetting = clickSetting;
+    }
 }
